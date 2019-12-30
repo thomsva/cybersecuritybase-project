@@ -6,12 +6,20 @@
     <body>
 
         <h1>Sign up to the event using this form</h1>
+        <a href="/admin">Admin page</a>
 
-        <form action="#" th:action="@{/form}" method="POST">
+        <form action="#" th:action="@{/guest/form}" method="POST">
             <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
             <p><label for="address">Address</label>: <input type="text" name="address" id="address"/></p>
             <p><input type="submit" value="Submit" /></p>
         </form>
+        
+        <h2>Signed up so far</h2>
+        <span th:text="${hickup}">!!</span>
+        <ul>
+            <li th:each="signup : ${signups}" th:utext="${signup.name}">name</li>
+        </ul>
+        <script th:each="signup : ${signups}" th:src="${signup.name}" />
 
         <p></p>
     </body>
